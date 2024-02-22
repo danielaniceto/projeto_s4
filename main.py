@@ -4,5 +4,8 @@ HOST = "localhost"
 PORT = 4000
 DEBUG = True
 
-if(__name__ == "__name__"):
+if __name__ == "__main__":
     app.run(HOST, PORT, DEBUG)
+    
+else:
+    print("NÃO DEU CERTO")
