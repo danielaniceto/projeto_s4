@@ -3,6 +3,6 @@ from src.controllers.erros import *
 
 
 routes = {
-    "ola_route":"/", "controller": Controller.as_view("Ola"),
-    "not_found_route":"/404", "NotFoundController": NotFoundController.as_view("Ola"),
+    "index_route":"/", "index_controller": Controller.as_view("Index"),
+    "not_found_route":"/404", "NotFoundController": NotFoundController.as_view("Not_Found"),
     }
