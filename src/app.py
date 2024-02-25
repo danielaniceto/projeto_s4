@@ -10,3 +10,5 @@ app.register_error_handler(routes["not_found_route"], routes["NotFoundController
 app.add_url_rule(routes["delete_route"], view_func=routes["delete_controller"])
 
 app.add_url_rule(routes["update_route"], view_func=routes["update_controller"])
+
+app.add_url_rule(routes["read_route"], view_func=routes["read_controller"])

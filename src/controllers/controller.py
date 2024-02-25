@@ -41,8 +41,13 @@ class UpdateProdutosController(MethodView):
         quantidade = request.form["quantidade"]
 
         with mysql.cursor() as cursor_banco:
-            cursor_banco.execute("UPDATE produtos SET id = %s, nome = %s, descricao = %s, quantidade = %s WHERE" (id_produto, nome, descricao, quantidade))
-            produto = cursor_banco.fetchone()
-            return render_template("public/update.html", produto = produto)
+            cursor_banco.execute("UPDATE produtos SET id = %s, nome = %s, descricao = %s, quantidade = %s WHERE" (id_produto, nome, descricao, quantidade, id))
+            cursor_banco.commit()
+            return redirect("/")
 
-        
+class ReadProdutosController(MethodView):
+    def post(self, id):
+        with mysql.cursor() as cursor_banco:
+            cursor_banco.execute("SELECT FROM * produtos")
+            data = cursor_banco.fetchall
+        return render_template("public/read.html", data = data)
