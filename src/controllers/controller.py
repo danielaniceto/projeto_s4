@@ -1,6 +1,6 @@
 from flask.views import MethodView
 from flask import request, render_template, redirect
-from src.db import mysql
+from conectio_db import mysql
 
 class IndexController(MethodView):
     def get(self):
@@ -46,7 +46,7 @@ class UpdateProdutosController(MethodView):
             return redirect("/")
 
 class ReadProdutosController(MethodView):
-    def post(self, id):
+    def get(self):
         with mysql.cursor() as cursor_banco:
             cursor_banco.execute("SELECT FROM * produtos")
             data = cursor_banco.fetchall

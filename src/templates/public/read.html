@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/read/produto/" method="GET">
+    <input type="number" name="id" placeholder="ID do produto">
+    <input type="text" name="nome" placeholder="Nome do Produto">
+    <input type="text" name="descricao" placeholder="Descrição do Produto">
+    <input type="number" name="quantidade" placeholder="Quantidade do Produto">
+
+    <button type="submit">Cadastrar de Produtos</button>
+
+</form>
+
+{% endblock %}
