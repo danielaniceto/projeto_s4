@@ -9,6 +9,17 @@
     <input type="number" name="quantidade" placeholder="Quantidade do Produto">
 
     <button type="submit">Cadastro de Produtos</button>
+
+    <button type="submit">Deletar Produtos</button>
+
 </form>
+
+    {% for produto in data %}
+        {{produto.ID}}
+        {{produto.nome}}
+        {{produto.descricao}}
+        {{produto.quantidade}}
+
+    {% endfor %}
 
 {% endblock %}

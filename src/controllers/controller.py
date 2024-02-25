@@ -16,11 +16,33 @@ class IndexController(MethodView):
         quantidade = request.form["quantidade"]
 
         with mysql.cursor() as cursor_banco:
-            cursor_banco.execute("INSERT INTO produtos values(%s, %s, %s, %s)", (id, nome, descricao, quantidade))
+            cursor_banco.execute("INSERT INTO produtos (id, nome, descricao, quantidade) VALUES (%s, %s, %s, %s)", (id, nome, descricao, quantidade))
             cursor_banco.connection.commit()
             return redirect("/")
         
 class DeleteProdutosController(MethodView):
-    def get(self, id):
-        return "Deletado com Sucesso"
+    def post(self, id):
+        with mysql.cursor() as cursor_banco:
+            cursor_banco.execute("DELETE FROM produtos WHERE id = %s", (id))
+            cursor_banco.connection.commit()
+            return redirect("/")
+
+class UpdateProdutosController(MethodView):
+    def post(self, id):
+        with mysql.cursor() as cursor_banco:
+            cursor_banco.execute("SELECT * FROM produtos WHERE id = %s", (id))
+            produto = cursor_banco.fetchone()
+            return render_template("public/update.html", produto = produto)
+        
+    def post(self, id):
+        id_produto = request.form["id"]
+        nome = request.form["nome"]
+        descricao = request.form["descicao"]
+        quantidade = request.form["quantidade"]
+
+        with mysql.cursor() as cursor_banco:
+            cursor_banco.execute("UPDATE produtos SET id = %s, nome = %s, descricao = %s, quantidade = %s WHERE" (id_produto, nome, descricao, quantidade))
+            produto = cursor_banco.fetchone()
+            return render_template("public/update.html", produto = produto)
+
         
