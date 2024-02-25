@@ -10,6 +10,12 @@
 
     <button type="submit">Cadastrar de Produtos</button>
 
+    <select name="Produtos">
+        <option selected> Selecione um produto </option>
+        {% for produto in Produtos %}
+        <option value="`{{product}}"> {{product}}</option>
+        {% endfor %}
+    </select>
 </form>
 
     {% for produto in data %}

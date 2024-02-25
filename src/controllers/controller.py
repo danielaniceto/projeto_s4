@@ -16,7 +16,7 @@ class IndexController(MethodView):
         quantidade = request.form["quantidade"]
 
         with mysql.cursor() as cursor_banco:
-            cursor_banco.execute("INSERT INTO produtos (id, nome, descricao, quantidade) VALUES (%s, %s, %s, %s)", (id, nome, descricao, quantidade))
+            cursor_banco.execute("INSERT INTO produtos VALUES (id, nome, descricao, quantidade) VALUES (%s, %s, %s, %s)", (id, nome, descricao, quantidade))
             cursor_banco.connection.commit()
             return redirect("/")
         
@@ -34,7 +34,7 @@ class UpdateProdutosController(MethodView):
             produto = cursor_banco.fetchone()
             return render_template("public/update.html", produto = produto)
         
-    def post(self, id):
+    def put(self, id):
         id_produto = request.form["id"]
         nome = request.form["nome"]
         descricao = request.form["descicao"]
@@ -49,5 +49,5 @@ class ReadProdutosController(MethodView):
     def get(self):
         with mysql.cursor() as cursor_banco:
             cursor_banco.execute("SELECT FROM * produtos")
-            data = cursor_banco.fetchall
-        return render_template("public/read.html", data = data)
+            read = cursor_banco.fetchall
+        return render_template("public/read.html", data=read)
