@@ -1,6 +1,6 @@
 from flask.views import MethodView
 from flask import request, render_template, redirect
-from conectio_db import mysql
+from conection_db import mysql
 
 class IndexController(MethodView):
     def get(self):

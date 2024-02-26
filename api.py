@@ -7,7 +7,7 @@ from src.controllers.controller import *
 app.run(port=4000, host="localhost", debug= True)
 
 @app.route("public/index", methods=["GET"])
-def is_criar_produtos():
+def is_create_produtos():
     return jsonify(IndexController.get)
 
 @app.route("/", methods=["POST"])
