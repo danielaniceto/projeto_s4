@@ -6,5 +6,5 @@ CREATE TABLE IF NOT EXISTS produtos (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL, 
     descricao VARCHAR(5000), 
-    preco DOUBLE NOT NULL
+    preco DECIMAL NOT NULL
 );

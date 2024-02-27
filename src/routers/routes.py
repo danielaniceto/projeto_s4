@@ -9,4 +9,3 @@ routes = {
     "update_route":"/update/product/<int:id>", "update_controller": UpdateProdutosController.as_view("Updated"),
     "read_route":"/read/product", "read_controller": ReadProdutosController.as_view("Read_Products"),
     }
-
