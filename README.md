@@ -49,3 +49,5 @@ Vamos falar agora sobre a estrutura do projeto
 Bom acredito que fechamos aqui, se eu não esqueci de nada a estrutura e essa.
 
 Obrigado!!!
+
+PS: não consegui fazer o projeto rodar de pois da implementação do banco, tenho um erro do codigo sql do banco, que apesar de rodar diretamente no mysql workbench, não rodou no projeto, coloquei duas imagens com a validação da criação do banco e das tabelas.
